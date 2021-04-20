@@ -1,34 +1,21 @@
-import { fizzbuzz, WordAnswer } from './fizzbuzz'
+import * as FB from './fizzbuzz'
 
 describe('Fizzbuzz Suite', () => {
-	it.each([
-		[1],
-		[2],
-		[4],
-	])('should return input as the output when random (ex: %s)', (input) => {
-		expect(fizzbuzz(input)).toBe(input)
-	})
 
-	it.each([
-		[3],
-		[6],
-		[9],
-		[12],
-	])('should return Fizz when is multiple of 3 (ex: %s)', (input) => {
-		expect(fizzbuzz(input)).toBe(WordAnswer.FIZZ)
-	})
+	it.only('should be called 5 times', () => {
+		const personalForEach = jest.fn(x => 42 + x);
+		forEach([0, 1], mockCallback);
 
-	it.each([
-		[5],
-		[10],
-	])('should return Buzz when is multiple of 5 (ex: %s', (input) => {
-		expect(fizzbuzz(input)).toBe(WordAnswer.BUZZ)
-	})
+// The mock function is called twice
+		expect(mockCallback.mock.calls.length).toBe(2);
 
+// The first argument of the first call to the function was 0
+		expect(mockCallback.mock.calls[0][0]).toBe(0);
 
-	it.each([
-		[15],
-	])('should return FizzBuzz when is a simultaneous multiple of 3 and 5 (ex: %s', (input) => {
-		expect(fizzbuzz(input)).toBe('FizzBuzz')
+// The first argument of the second call to the function was 1
+		expect(mockCallback.mock.calls[1][0]).toBe(1);
+
+// The return value of the first call to the function was 42
+		expect(mockCallback.mock.results[0].value).toBe(42);
 	})
 })

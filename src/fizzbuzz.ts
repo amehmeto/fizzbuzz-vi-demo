@@ -1,25 +1,9 @@
-function isMultipleOf(multiple: number, number: number) {
-	return number % multiple === 0
+function personalForEach(fruits: string[], showFruit: Function) {
+	for (let index = 0; index < fruits.length; index++) {
+		showFruit(fruits[index]);
+	}
 }
 
-export function fizzbuzz(number: number): number | WordAnswer {
-	if (isMultipleOf(3, number) && isMultipleOf(5, number))
-		return WordAnswer.FIZZBUZZ
-	if (isMultipleOf(3, number))
-		return WordAnswer.FIZZ
-	if (isMultipleOf(5, number))
-		return WordAnswer.BUZZ
-	return number
-}
+const showFruitImplementation = (fruit: string) => console.log(fruit)
 
-export enum WordAnswer {
-	FIZZ = 'Fizz',
-	BUZZ = 'Buzz',
-	FIZZBUZZ = 'FizzBuzz',
-}
-
-
-/*
-for (let i = 0 ; i <= 100 ; i++)
-	console.log(fizzbuzz(i))
-*/
+personalForEach(['🍌', '🍓'], showFruitImplementation)
